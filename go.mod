@@ -1,4 +1,4 @@
-module passport
+module github.com/eriktisme/passport
 
 go 1.15
 

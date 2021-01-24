@@ -12,7 +12,7 @@ RUN go mod download
 
 COPY . ./
 
-CMD ["go", "run", "src/main.go"]
+CMD ["go", "run", "cmd/passport/main.go"]
 
 FROM base AS builder
 
@@ -26,10 +26,12 @@ RUN go mod download
 
 COPY . ./
 
-RUN CGO_ENABLED=0 GO111MODULE=on GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" src/main.go
+RUN CGO_ENABLED=0 GO111MODULE=on GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o passport cmd/passport/main.go
 
-FROM alpine:latest AS production
+FROM scratch AS production
 
-COPY --from=builder /build/main .
+WORKDIR /app
 
-ENTRYPOINT ["./main"]
+COPY --from=builder /build/passport .
+
+ENTRYPOINT ["./passport"]

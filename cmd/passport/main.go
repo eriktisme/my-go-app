@@ -1,15 +1,15 @@
 package main
 
 import (
+	"github.com/eriktisme/passport/internal/user/handlers"
 	"github.com/gin-gonic/gin"
-	"passport/src/handlers"
 )
 
 func main() {
-	setupServer().Run()
+	SetupServer().Run()
 }
 
-func setupServer() *gin.Engine {
+func SetupServer() *gin.Engine {
 	router := gin.Default()
 
 	router.GET("/ping", handlers.Ping)

@@ -1,7 +1,8 @@
-package main
+package test
 
 import (
 	"fmt"
+	p "github.com/eriktisme/passport/cmd/passport"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -10,7 +11,7 @@ import (
 )
 
 func TestPingRoute(t *testing.T) {
-	ts := httptest.NewServer(setupServer())
+	ts := httptest.NewServer(p.SetupServer())
 
 	defer ts.Close()
 
@@ -26,7 +27,7 @@ func TestPingRoute(t *testing.T) {
 }
 
 func TestLoginRoute(t *testing.T) {
-	r := setupServer()
+	r := p.SetupServer()
 
 	req, _ := http.NewRequest("POST", "/login", strings.NewReader(loginPayload()))
 

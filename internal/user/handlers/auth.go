@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"fmt"
+	u "github.com/eriktisme/passport/internal/user/domain"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator"
 	"net/http"
-	u "passport/src/models"
 )
 
 func Login(c *gin.Context) {
