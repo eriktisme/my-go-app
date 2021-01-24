@@ -2,17 +2,19 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+	"passport/src/handlers"
 )
 
 func main() {
+	setupServer().Run()
+}
+
+func setupServer() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Hello, the World",
-		})
-	})
+	router.GET("/ping", handlers.Ping)
 
-	router.Run()
+	router.POST("/login", handlers.Login)
+
+	return router
 }
