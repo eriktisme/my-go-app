@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/eriktisme/passport/internal/user/handlers"
+	handler "github.com/eriktisme/passport/internal/router"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,9 +12,10 @@ func main() {
 func SetupServer() *gin.Engine {
 	router := gin.Default()
 
-	router.GET("/ping", handlers.Ping)
+	router.GET("/ping", handler.Ping)
 
-	router.POST("/login", handlers.Login)
+
+	router.POST("/login", handler.Login)
 
 	return router
 }

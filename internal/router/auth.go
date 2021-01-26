@@ -1,8 +1,8 @@
-package handlers
+package router
 
 import (
 	"fmt"
-	u "github.com/eriktisme/passport/internal/user/domain"
+	u "github.com/eriktisme/passport/internal/user"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 	"github.com/go-playground/validator"
