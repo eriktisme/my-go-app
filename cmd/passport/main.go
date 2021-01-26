@@ -14,6 +14,7 @@ func SetupServer() *gin.Engine {
 
 	router.GET("/ping", handler.Ping)
 
+	router.GET("/csrf-cookie", handler.Csrf)
 
 	router.POST("/login", handler.Login)
 
