@@ -1,7 +1,6 @@
 package router
 
 import (
-	"fmt"
 	u "github.com/eriktisme/passport/internal/user"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
@@ -40,6 +39,6 @@ func Login(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, gin.H{
-		"message": fmt.Sprintf("Welcome, %s", user.Name),
+		"user": user,
 	})
 }
