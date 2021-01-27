@@ -4,5 +4,14 @@ services:
     build:
       context: .
       target: dev
+    networks:
+      - internal
+      - proxy
     ports:
       - 8080:8080
+
+networks:
+  internal:
+  proxy:
+    name: scaling
+    external: true
